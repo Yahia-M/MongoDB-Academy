@@ -10,7 +10,7 @@
     }
 ])*/
 
-use("sample_training")
+// use("sample_training")
 
 /*db.zips.aggregate([
     {   
@@ -38,4 +38,31 @@ use("sample_training")
     ])*/
 
 
+use("sample_mflix")
+db.movies.aggregate([
 
+  // First Stage
+
+  { $project: { _id: 0, genres: 1, imdb: 1, title: 1 } },
+
+  // Second Stage
+
+  { $unwind: "$genres" },
+
+  // Third Stage
+
+  { $group:
+    { _id: "$genres",
+      averageGenreRating: { $avg: "$imdb.rating" }
+    }
+  },
+
+   // Fourth Stage
+
+   { $sort: { averageGenreRating: -1 } },
+
+    // fifth Stage
+   {$out:"averageGenreRating_movies"}
+] );
+
+db.getCollectionNames()

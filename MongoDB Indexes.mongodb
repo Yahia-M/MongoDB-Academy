@@ -1,0 +1,32 @@
+use('sample_analytics')
+// db.customers.findOne()
+/*db.customers.createIndex({
+    birthdate: 1
+  })
+
+
+db.customers.createIndex({
+    email: 1
+  },
+  {
+    unique:true
+  })
+
+db.customers.getIndexes()
+
+
+db.customers.explain().find({
+    birthdate: {
+      $gt:ISODate("1995-08-01")
+      }
+    })
+
+
+db.customers.explain().find({
+    birthdate: {
+      $gt:ISODate("1995-08-01")
+      }
+    }).sort({
+      email:1
+      })
+*/
