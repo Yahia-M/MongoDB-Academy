@@ -1,0 +1,41 @@
+/*db.collection.aggregate([
+    {
+        $stage1: {
+            { expression1 },
+            { expression2 }
+        },
+        $stage2: {
+            { expression1 }
+        }
+    }
+])*/
+
+use("sample_training")
+
+/*db.zips.aggregate([
+    {   
+       $match: { 
+          state: "CA"
+        }
+    },
+    {
+       $group: {
+          _id: "$city",
+          totalZips: { $count : { } }
+       }
+    }
+    ])
+*/
+/*db.zips.aggregate([
+    {
+      $sort: {
+        pop: -1
+      }
+    },
+    {
+      $limit:  5
+    }
+    ])*/
+
+
+

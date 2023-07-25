@@ -1,0 +1,23 @@
+// db.collection()
+// show dbs
+// use('sample_training')
+// db.zips.findOne()
+// db.zips.find({ city: { $in: ["PHOENIX", "CHICAGO"] } })
+// use('sample_supplies')
+// db.sales.find({ "items.price": { $gt: 50}})
+// db.sales.find({ "items.price": { $lt: 50}})
+// db.sales.find({ "customer.age": { $lte: 65}})
+// db.sales.find({ "customer.age": { $gte: 65}})
+// use('sample_analytics')
+// db.accounts.find({ products: "InvestmentFund"})
+// use('sample_supplies')
+// db.sales.find({items: {$elemMatch: { name: "laptop", price: { $gt: 800 }, quantity: { $gte: 1 } },},})
+use('sample_training')
+// db.routes.find({ "airline.name": "Southwest Airlines", stops: { $gte: 1 } })
+// db.routes.find({$or: [{ dst_airport: "SEA" }, { src_airport: "SEA" }],})
+db.routes.find({
+    $and: [
+      { $or: [{ dst_airport: "SEA" }, { src_airport: "SEA" }] },
+      { $or: [{ "airline.name": "American Airlines" }, { airplane: 320 }] },
+    ]
+  })

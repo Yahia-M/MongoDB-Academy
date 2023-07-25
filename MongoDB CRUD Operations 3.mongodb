@@ -1,0 +1,15 @@
+db.companies
+  .find({ category_code: "music" })
+  .sort({ number_of_employees: -1, _id: 1 })
+  .limit(3);
+
+db.inspections.find(
+    { sector: "Restaurant - 818" },
+    { business_name: 1, result: 1, _id: 0 }
+)
+
+// Count number of docs in trip collection
+db.trips.countDocuments({})
+
+// Count number of trips over 120 minutes by subscribers
+db.trips.countDocuments({ tripduration: { $gt: 120 }, usertype: "Subscriber" })
